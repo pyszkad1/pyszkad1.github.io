@@ -4,27 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adam Pyszko (@pyszkad1) · Projects & Apps</title>
-  <meta name="description" content="Personal hub and project showcase of Adam Pyszko (@pyszkad1) — Android apps, web projects, and bridge tools.">
+  <meta name="description" content="Personal hub of Adam Pyszko (@pyszkad1) — Android apps, web projects, and software tools.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <!-- Tropical flower favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌺</text></svg>">
   <style>
     :root {
-      --bg: #090d16;
-      --card-bg: rgba(255, 255, 255, 0.035);
-      --card-bg-hover: rgba(255, 255, 255, 0.065);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(255, 255, 255, 0.2);
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-faint: #64748b;
-      --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.25);
-      --gold: #f59e0b;
-      --gold-glow: rgba(245, 158, 11, 0.2);
+      /* Rainforest & Earthy Dark Palette */
+      --bg: #070d09;
+      --bg-surface: rgba(15, 27, 19, 0.72);
+      --bg-surface-hover: rgba(22, 40, 28, 0.88);
+      --card-border: rgba(74, 222, 128, 0.12);
+      --card-border-hover: rgba(74, 222, 128, 0.3);
+      
+      /* Jungle Greens & Moss */
+      --jungle-accent: #22c55e;
+      --jungle-glow: rgba(34, 197, 94, 0.2);
+      --moss: #4ade80;
       --emerald: #10b981;
-      --rose: #f43f5e;
+      
+      /* Earthy Bark Browns & Warm Terracotta */
+      --earth-brown: #3a2518;
+      --bark-sand: #c89d6e;
+      --bark-light: #e4be93;
+      --bark-glow: rgba(200, 157, 110, 0.18);
+
+      /* Typography */
+      --text-main: #f1f7f2;
+      --text-muted: #9cb5a3;
+      --text-faint: #607968;
+      
       --font-display: 'Outfit', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
     }
@@ -37,6 +48,10 @@
 
     body {
       background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(20, 83, 45, 0.28) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(58, 37, 24, 0.32) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(6, 44, 22, 0.2) 0%, transparent 60%);
       color: var(--text-main);
       font-family: var(--font-body);
       min-height: 100vh;
@@ -49,30 +64,64 @@
       line-height: 1.5;
     }
 
-    /* Ambient background gradient orbs */
+    /* Ambient background lighting */
     .ambient-glow {
       position: fixed;
       border-radius: 50%;
-      filter: blur(120px);
+      filter: blur(140px);
       pointer-events: none;
       z-index: 0;
-      opacity: 0.45;
+      opacity: 0.5;
     }
     .glow-1 {
-      top: -100px;
+      top: -80px;
       left: 50%;
       transform: translateX(-50%);
-      width: 500px;
-      height: 350px;
-      background: radial-gradient(circle, #2563eb, transparent 70%);
+      width: 550px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.25), transparent 70%);
     }
     .glow-2 {
-      bottom: 10%;
-      right: 5%;
-      width: 400px;
-      height: 350px;
-      background: radial-gradient(circle, #7c3aed, transparent 70%);
-      opacity: 0.3;
+      bottom: 12%;
+      right: -5%;
+      width: 450px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(140, 93, 59, 0.3), transparent 70%);
+      opacity: 0.35;
+    }
+
+    /* Monstera Adansonii Botanical SVG Leaves */
+    .monstera-leaf {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.65));
+    }
+    .monstera-top {
+      top: -30px;
+      left: -50px;
+      width: 240px;
+      height: 380px;
+      opacity: 0.22;
+      animation: leafSwayTop 12s ease-in-out infinite alternate;
+    }
+    .monstera-bottom {
+      bottom: -40px;
+      right: -60px;
+      width: 280px;
+      height: 420px;
+      opacity: 0.2;
+      animation: leafSwayBottom 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes leafSwayTop {
+      0% { transform: rotate(-14deg) translate(0, 0); }
+      100% { transform: rotate(-9deg) translate(12px, 8px); }
+    }
+    @keyframes leafSwayBottom {
+      0% { transform: rotate(22deg) translate(0, 0); }
+      100% { transform: rotate(27deg) translate(-10px, 12px); }
     }
 
     .container {
@@ -97,12 +146,12 @@
 
     .avatar-wrap {
       position: relative;
-      width: 104px;
-      height: 104px;
+      width: 106px;
+      height: 106px;
       border-radius: 50%;
       padding: 3px;
-      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
-      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.35);
+      background: linear-gradient(135deg, #22c55e, #10b981, #c89d6e, #855838);
+      box-shadow: 0 8px 30px rgba(34, 197, 94, 0.25), 0 0 20px rgba(200, 157, 110, 0.15);
       animation: float 6s ease-in-out infinite;
     }
 
@@ -116,34 +165,48 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      background: #1e293b;
+      background: #112216;
       display: block;
+    }
+
+    .profile-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
 
     .profile-title {
       font-family: var(--font-display);
-      font-size: 1.85rem;
+      font-size: 1.95rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       color: #fff;
     }
 
+    .nature-badge-icon {
+      font-size: 1.35rem;
+      display: inline-block;
+      filter: drop-shadow(0 2px 8px rgba(34, 197, 94, 0.4));
+    }
+
     .profile-handle {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--accent);
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      padding: 0.25rem 0.85rem;
+      gap: 0.4rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--moss);
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      padding: 0.25rem 0.9rem;
       border-radius: 9999px;
       text-decoration: none;
       transition: all 0.2s ease;
     }
     .profile-handle:hover {
-      background: rgba(56, 189, 248, 0.2);
+      background: rgba(34, 197, 94, 0.18);
+      border-color: rgba(74, 222, 128, 0.45);
       transform: translateY(-1px);
     }
 
@@ -152,12 +215,13 @@
       font-size: 0.98rem;
       max-width: 480px;
       margin: 0 auto;
+      line-height: 1.45;
     }
 
     .social-links {
       display: flex;
       gap: 0.65rem;
-      margin-top: 0.4rem;
+      margin-top: 0.35rem;
     }
 
     .social-btn {
@@ -167,17 +231,19 @@
       font-size: 0.85rem;
       font-weight: 500;
       color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--bg-surface);
       border: 1px solid var(--card-border);
-      padding: 0.4rem 0.85rem;
-      border-radius: 8px;
+      padding: 0.42rem 0.9rem;
+      border-radius: 10px;
       text-decoration: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       transition: all 0.2s ease;
     }
     .social-btn:hover {
       color: #fff;
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
+      background: var(--bg-surface-hover);
+      border-color: var(--card-border-hover);
       transform: translateY(-1px);
     }
 
@@ -191,7 +257,7 @@
     }
     .section-title {
       font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 600;
       letter-spacing: -0.01em;
       color: #fff;
@@ -204,20 +270,21 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 0.18rem 0.55rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      color: var(--moss);
     }
 
     /* Cards Stack */
     .links-stack {
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: 0.95rem;
     }
 
-    /* Featured App Card (#1 PicToSolver) */
+    /* Featured App Card (#1 PicToSolver) - Rainforest Tech Glass */
     .featured-app-card {
       position: relative;
       display: flex;
@@ -225,11 +292,13 @@
       gap: 1.15rem;
       padding: 1.25rem 1.35rem;
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(99, 102, 241, 0.08), rgba(255, 255, 255, 0.03));
-      border: 1px solid rgba(56, 189, 248, 0.4);
+      background: linear-gradient(135deg, rgba(16, 50, 30, 0.75), rgba(40, 28, 18, 0.65), rgba(12, 24, 16, 0.8));
+      border: 1px solid rgba(74, 222, 128, 0.32);
       text-decoration: none;
       color: inherit;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 25px rgba(56, 189, 248, 0.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(34, 197, 94, 0.12);
       transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
       overflow: hidden;
     }
@@ -240,16 +309,16 @@
       left: 0;
       width: 4px;
       height: 100%;
-      background: linear-gradient(180deg, #38bdf8, #818cf8);
+      background: linear-gradient(180deg, #22c55e, #c89d6e);
     }
     .featured-app-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(56, 189, 248, 0.7);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 35px rgba(56, 189, 248, 0.25);
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(99, 102, 241, 0.12), rgba(255, 255, 255, 0.05));
+      border-color: rgba(74, 222, 128, 0.55);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 35px rgba(34, 197, 94, 0.22);
+      background: linear-gradient(135deg, rgba(22, 65, 38, 0.85), rgba(50, 35, 22, 0.75), rgba(16, 32, 20, 0.85));
     }
 
-    /* Wedding Card */
+    /* Wedding Card - Warm Sand & Rose Gold Earth */
     .wedding-card {
       position: relative;
       display: flex;
@@ -257,21 +326,46 @@
       gap: 1.15rem;
       padding: 1.15rem 1.25rem;
       border-radius: 16px;
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.07), rgba(244, 63, 94, 0.05), rgba(255, 255, 255, 0.025));
-      border: 1px solid rgba(245, 158, 11, 0.25);
+      background: linear-gradient(135deg, rgba(58, 37, 24, 0.65), rgba(24, 38, 28, 0.7), rgba(15, 27, 19, 0.7));
+      border: 1px solid rgba(200, 157, 110, 0.3);
       text-decoration: none;
       color: inherit;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
       transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .wedding-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(245, 158, 11, 0.5);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3), 0 0 25px rgba(245, 158, 11, 0.15);
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.11), rgba(244, 63, 94, 0.08), rgba(255, 255, 255, 0.04));
+      border-color: rgba(200, 157, 110, 0.55);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 25px rgba(200, 157, 110, 0.18);
+      background: linear-gradient(135deg, rgba(72, 46, 30, 0.75), rgba(30, 48, 35, 0.75), rgba(18, 34, 24, 0.75));
     }
 
-    /* App Icon Styling */
+    /* Standard Cards */
+    .standard-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+      padding: 1.15rem 1.25rem;
+      border-radius: 16px;
+      background: var(--bg-surface);
+      border: 1px solid var(--card-border);
+      text-decoration: none;
+      color: inherit;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .standard-card:hover {
+      transform: translateY(-2px);
+      background: var(--bg-surface-hover);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Icon Wraps */
     .link-icon-wrap {
       width: 56px;
       height: 56px;
@@ -280,8 +374,8 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       overflow: hidden;
     }
     .app-icon-img {
@@ -309,11 +403,11 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .tag-cyan {
-      color: #38bdf8;
+    .tag-jungle {
+      color: var(--moss);
     }
-    .tag-gold {
-      color: var(--gold);
+    .tag-bark {
+      color: var(--bark-sand);
     }
     .tag-status-live {
       display: inline-flex;
@@ -321,7 +415,7 @@
       gap: 0.25rem;
       font-size: 0.68rem;
       font-weight: 600;
-      padding: 0.1rem 0.45rem;
+      padding: 0.12rem 0.45rem;
       border-radius: 6px;
       background: rgba(34, 197, 94, 0.15);
       border: 1px solid rgba(34, 197, 94, 0.35);
@@ -352,53 +446,32 @@
     .featured-app-card:hover .arrow-icon,
     .wedding-card:hover .arrow-icon,
     .standard-card:hover .arrow-icon {
-      color: #fff;
+      color: var(--moss);
       transform: translateX(4px);
     }
 
-    /* Standard Cards */
-    .standard-card {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 1.15rem;
-      padding: 1.15rem 1.25rem;
-      border-radius: 16px;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      text-decoration: none;
-      color: inherit;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .standard-card:hover {
-      transform: translateY(-2px);
-      background: var(--card-bg-hover);
-      border-color: var(--card-border-hover);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    /* Repo Grid / Search */
+    /* Repo Grid & Search */
     .search-wrap {
       margin-bottom: 0.85rem;
     }
     .search-input {
       width: 100%;
-      background: rgba(255, 255, 255, 0.035);
+      background: var(--bg-surface);
       border: 1px solid var(--card-border);
       border-radius: 12px;
-      padding: 0.65rem 1rem;
+      padding: 0.7rem 1.1rem;
       color: #fff;
       font-family: var(--font-body);
       font-size: 0.9rem;
       outline: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       transition: all 0.2s ease;
     }
     .search-input:focus {
-      border-color: var(--accent);
-      background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+      border-color: var(--jungle-accent);
+      background: var(--bg-surface-hover);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
     }
     .search-input::placeholder {
       color: var(--text-faint);
@@ -416,23 +489,25 @@
     }
 
     .repo-card {
-      background: var(--card-bg);
+      background: var(--bg-surface);
       border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 1rem;
+      padding: 1.05rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       text-decoration: none;
       color: inherit;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       transition: all 0.2s ease;
       min-height: 110px;
     }
     .repo-card:hover {
-      background: var(--card-bg-hover);
+      background: var(--bg-surface-hover);
       border-color: var(--card-border-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
     .repo-top {
       display: flex;
@@ -474,14 +549,14 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--moss);
     }
     .pages-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.3);
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.35);
       color: #4ade80;
       padding: 0.15rem 0.45rem;
       border-radius: 6px;
@@ -491,7 +566,7 @@
 
     /* Skeleton Loading State */
     .skeleton-card {
-      background: var(--card-bg);
+      background: var(--bg-surface);
       border: 1px solid var(--card-border);
       border-radius: 14px;
       padding: 1rem;
@@ -499,8 +574,8 @@
       animation: pulse 1.5s infinite;
     }
     @keyframes pulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 0.8; }
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.7; }
     }
 
     /* Footer */
@@ -509,7 +584,7 @@
       font-size: 0.82rem;
       color: var(--text-faint);
       padding: 1.5rem 0 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(74, 222, 128, 0.08);
       margin-top: 1rem;
       display: flex;
       flex-direction: column;
@@ -529,13 +604,73 @@
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
 
+  <!-- Handcrafted Monstera Adansonii Leaves (signature oval fenestrations) -->
+  <svg class="monstera-leaf monstera-top" viewBox="0 0 240 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="monsteraGrad1" x1="40" y1="20" x2="200" y2="350" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#22c55e" stop-opacity="0.9"/>
+        <stop offset="50%" stop-color="#15803d" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#052e16" stop-opacity="0.6"/>
+      </linearGradient>
+    </defs>
+    <!-- Midrib stem -->
+    <path d="M120 370 C118 290 115 160 120 20" stroke="#4ade80" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+    <!-- Blade with Adansonii signature window holes -->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="
+      M120 15
+      C170 55 215 125 215 210
+      C215 275 180 325 120 355
+      C60 325 25 275 25 210
+      C25 125 70 55 120 15 Z
+      
+      M158 115 C168 125 167 150 156 160 C146 150 147 125 158 115 Z
+      M82 135 C92 145 91 170 80 180 C70 170 71 145 82 135 Z
+      M164 185 C176 200 174 230 161 240 C149 230 151 200 164 185 Z
+      M76 210 C88 225 86 255 74 265 C62 255 64 225 76 210 Z
+      M140 250 C148 260 146 280 137 288 C129 280 131 260 140 250 Z
+      M98 275 C105 283 104 298 97 304 C91 298 92 283 98 275 Z
+      M102 95 C110 105 108 120 100 125 C92 120 94 105 102 95 Z
+    " fill="url(#monsteraGrad1)"/>
+  </svg>
+
+  <svg class="monstera-leaf monstera-bottom" viewBox="0 0 240 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="monsteraGrad2" x1="200" y1="350" x2="40" y2="20" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#166534" stop-opacity="0.9"/>
+        <stop offset="50%" stop-color="#14532d" stop-opacity="0.75"/>
+        <stop offset="100%" stop-color="#052e16" stop-opacity="0.5"/>
+      </linearGradient>
+    </defs>
+    <!-- Midrib stem -->
+    <path d="M120 370 C122 290 125 160 120 20" stroke="#86efac" stroke-width="3" stroke-linecap="round" opacity="0.35"/>
+    <!-- Blade with Adansonii signature window holes -->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="
+      M120 15
+      C170 55 215 125 215 210
+      C215 275 180 325 120 355
+      C60 325 25 275 25 210
+      C25 125 70 55 120 15 Z
+      
+      M158 115 C168 125 167 150 156 160 C146 150 147 125 158 115 Z
+      M82 135 C92 145 91 170 80 180 C70 170 71 145 82 135 Z
+      M164 185 C176 200 174 230 161 240 C149 230 151 200 164 185 Z
+      M76 210 C88 225 86 255 74 265 C62 255 64 225 76 210 Z
+      M140 250 C148 260 146 280 137 288 C129 280 131 260 140 250 Z
+      M98 275 C105 283 104 298 97 304 C91 298 92 283 98 275 Z
+      M102 95 C110 105 108 120 100 125 C92 120 94 105 102 95 Z
+    " fill="url(#monsteraGrad2)"/>
+  </svg>
+
   <main class="container">
     <!-- Profile & Header -->
     <header class="profile-card">
       <div class="avatar-wrap">
-        <img class="avatar-img" src="https://avatars.githubusercontent.com/u/119256066?v=4" alt="Adam Pyszko" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%2338bdf8\'/><text x=\'50%\' y=\'55%\' font-size=\'40\' text-anchor=\'middle\' fill=\'white\' font-family=\'sans-serif\' dy=\'.3em\'>AP</text></svg>'">
+        <img class="avatar-img" src="https://avatars.githubusercontent.com/u/119256066?v=4" alt="Adam Pyszko" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%2322c55e\'/><text x=\'50%\' y=\'55%\' font-size=\'40\' text-anchor=\'middle\' fill=\'white\' font-family=\'sans-serif\' dy=\'.3em\'>AP</text></svg>'">
       </div>
-      <h1 class="profile-title">Adam Pyszko</h1>
+      <div class="profile-title-row">
+        <h1 class="profile-title">Adam Pyszko</h1>
+        <span class="nature-badge-icon" title="Tropical nature">🌺</span>
+      </div>
       <a href="https://github.com/pyszkad1" target="_blank" rel="noopener noreferrer" class="profile-handle" title="View GitHub profile">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         @pyszkad1
@@ -558,7 +693,7 @@
     <section>
       <div class="section-head">
         <h2 class="section-title">
-          <span>✨</span> Featured Projects & Apps
+          <span>🌿</span> Featured Projects & Apps
         </h2>
         <span class="section-badge">Highlights</span>
       </div>
@@ -571,7 +706,7 @@
           </div>
           <div class="link-info">
             <div class="link-top-meta">
-              <span class="link-tag tag-cyan">Android App · Vision AI</span>
+              <span class="link-tag tag-jungle">Android App · Vision AI</span>
               <span class="tag-status-live">● Working App</span>
             </div>
             <h3 class="link-heading">PicToSolver</h3>
@@ -582,12 +717,12 @@
 
         <!-- 2. Lucka & Ondra Wedding Web -->
         <a href="https://pyszkad1.github.io/LuckaOndraSvatba/" class="wedding-card" target="_blank" rel="noopener noreferrer">
-          <div class="link-icon-wrap" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); font-size: 1.6rem;">
+          <div class="link-icon-wrap" style="background: rgba(200, 157, 110, 0.15); border-color: rgba(200, 157, 110, 0.3); font-size: 1.6rem;">
             <span>💍</span>
           </div>
           <div class="link-info">
             <div class="link-top-meta">
-              <span class="link-tag tag-gold">Wedding Web · 8. 5. 2027</span>
+              <span class="link-tag tag-bark">Wedding Web · 8. 5. 2027</span>
               <span class="tag-status-live">● Live</span>
             </div>
             <h3 class="link-heading">Lucka & Ondra · Svatební web</h3>
@@ -598,12 +733,12 @@
 
         <!-- 3. Fools Bridge System Notes -->
         <a href="https://bridge.zdenektomis.eu/fools" class="standard-card" target="_blank" rel="noopener noreferrer">
-          <div class="link-icon-wrap" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.3); font-size: 1.6rem;">
+          <div class="link-icon-wrap" style="background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.25); font-size: 1.6rem;">
             <span>♠️</span>
           </div>
           <div class="link-info">
             <div class="link-top-meta">
-              <span class="link-tag" style="color: #818cf8;">Bridge System Notes</span>
+              <span class="link-tag tag-jungle">Bridge System Notes</span>
               <span class="tag-status-live">● Live</span>
             </div>
             <h3 class="link-heading">Fools · Bridge Bidding System</h3>
@@ -650,17 +785,17 @@
     const searchInput = document.getElementById('repo-search');
     const countBadge = document.getElementById('repo-count-badge');
 
-    // Language color mapping
+    // Natural & vibrant language color mapping
     const LANG_COLORS = {
       'JavaScript': '#f1e05a',
-      'TypeScript': '#3178c6',
+      'TypeScript': '#38bdf8',
       'HTML': '#e34c26',
       'CSS': '#563d7c',
-      'Java': '#b07219',
-      'Python': '#3572A5',
-      'C++': '#f34b7d',
-      'C': '#555555',
-      'Jupyter Notebook': '#DA5B0B'
+      'Java': '#c49a6c',
+      'Python': '#3b82f6',
+      'C++': '#f43f5e',
+      'C': '#71717a',
+      'Jupyter Notebook': '#ea580c'
     };
 
     let allRepos = [];
@@ -743,7 +878,7 @@
 
       reposContainer.innerHTML = repos.map(repo => {
         const lang = repo.language || 'Code';
-        const dotColor = LANG_COLORS[lang] || '#38bdf8';
+        const dotColor = LANG_COLORS[lang] || '#4ade80';
         const hasLiveLink = repo.homepage || repo.has_pages;
         const targetUrl = hasLiveLink ? (repo.homepage || `https://${USERNAME}.github.io/${repo.name}/`) : repo.html_url;
         const desc = repo.description || 'Open source software project on GitHub.';
