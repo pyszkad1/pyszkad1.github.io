@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adam Pyszko (@pyszkad1) · Projects & Links</title>
-  <meta name="description" content="Personal hub and project showcase of Adam Pyszko (@pyszkad1) — web apps, open source projects, and developer tools.">
+  <title>Adam Pyszko (@pyszkad1) · Projects & Apps</title>
+  <meta name="description" content="Personal hub and project showcase of Adam Pyszko (@pyszkad1) — Android apps, web projects, and bridge tools.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,6 +23,7 @@
       --accent-glow: rgba(56, 189, 248, 0.25);
       --gold: #f59e0b;
       --gold-glow: rgba(245, 158, 11, 0.2);
+      --emerald: #10b981;
       --rose: #f43f5e;
       --font-display: 'Outfit', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
@@ -216,53 +217,79 @@
       gap: 0.9rem;
     }
 
-    /* Featured Hero Link (Special Highlight) */
-    .featured-card {
+    /* Featured App Card (#1 PicToSolver) */
+    .featured-app-card {
       position: relative;
       display: flex;
       align-items: center;
-      gap: 1.1rem;
+      gap: 1.15rem;
       padding: 1.25rem 1.35rem;
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(244, 63, 94, 0.06), rgba(255, 255, 255, 0.03));
-      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(99, 102, 241, 0.08), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(56, 189, 248, 0.4);
       text-decoration: none;
       color: inherit;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 25px rgba(245, 158, 11, 0.12);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 25px rgba(56, 189, 248, 0.12);
       transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
       overflow: hidden;
     }
-    .featured-card::before {
+    .featured-app-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 4px;
       height: 100%;
-      background: linear-gradient(180deg, #f59e0b, #f43f5e);
+      background: linear-gradient(180deg, #38bdf8, #818cf8);
     }
-    .featured-card:hover {
+    .featured-app-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(245, 158, 11, 0.6);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 35px rgba(245, 158, 11, 0.22);
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(244, 63, 94, 0.09), rgba(255, 255, 255, 0.05));
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 35px rgba(56, 189, 248, 0.25);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(99, 102, 241, 0.12), rgba(255, 255, 255, 0.05));
     }
 
+    /* Wedding Card */
+    .wedding-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+      padding: 1.15rem 1.25rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.07), rgba(244, 63, 94, 0.05), rgba(255, 255, 255, 0.025));
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .wedding-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(245, 158, 11, 0.5);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3), 0 0 25px rgba(245, 158, 11, 0.15);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.11), rgba(244, 63, 94, 0.08), rgba(255, 255, 255, 0.04));
+    }
+
+    /* App Icon Styling */
     .link-icon-wrap {
-      width: 52px;
-      height: 52px;
+      width: 56px;
+      height: 56px;
       border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
       flex-shrink: 0;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
     }
-    .featured-card .link-icon-wrap {
-      background: rgba(245, 158, 11, 0.15);
-      border-color: rgba(245, 158, 11, 0.3);
+    .app-icon-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 13px;
     }
 
     .link-info {
@@ -274,13 +301,31 @@
       align-items: center;
       gap: 0.5rem;
       margin-bottom: 0.2rem;
+      flex-wrap: wrap;
     }
     .link-tag {
       font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+    }
+    .tag-cyan {
+      color: #38bdf8;
+    }
+    .tag-gold {
       color: var(--gold);
+    }
+    .tag-status-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.1rem 0.45rem;
+      border-radius: 6px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #4ade80;
     }
     .link-heading {
       font-family: var(--font-display);
@@ -304,7 +349,8 @@
       transition: transform 0.2s ease, color 0.2s ease;
       flex-shrink: 0;
     }
-    .featured-card:hover .arrow-icon,
+    .featured-app-card:hover .arrow-icon,
+    .wedding-card:hover .arrow-icon,
     .standard-card:hover .arrow-icon {
       color: #fff;
       transform: translateX(4px);
@@ -315,7 +361,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      gap: 1.1rem;
+      gap: 1.15rem;
       padding: 1.15rem 1.25rem;
       border-radius: 16px;
       background: var(--card-bg);
@@ -494,7 +540,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         @pyszkad1
       </a>
-      <p class="profile-bio">Software engineer & bridge player. Explore live websites, interactive projects, and open source tools.</p>
+      <p class="profile-bio">Software engineer & bridge player. Explore mobile apps, web projects, and open source tools.</p>
       
       <div class="social-links">
         <a href="https://github.com/pyszkad1" target="_blank" rel="noopener noreferrer" class="social-btn">
@@ -508,24 +554,41 @@
       </div>
     </header>
 
-    <!-- Featured Live Websites Section -->
+    <!-- Featured Live Apps & Projects Section -->
     <section>
       <div class="section-head">
         <h2 class="section-title">
-          <span>✨</span> Featured Web Apps
+          <span>✨</span> Featured Projects & Apps
         </h2>
-        <span class="section-badge">Live</span>
+        <span class="section-badge">Highlights</span>
       </div>
 
       <div class="links-stack">
-        <!-- 1. Lucka & Ondra Wedding Web -->
-        <a href="https://pyszkad1.github.io/LuckaOndraSvatba/" class="featured-card" target="_blank" rel="noopener noreferrer">
+        <!-- 1. PicToSolver (FIRST) -->
+        <a href="https://github.com/pyszkad1/PicToSolver" class="featured-app-card" target="_blank" rel="noopener noreferrer">
           <div class="link-icon-wrap">
+            <img src="assets/pictosolver.png" class="app-icon-img" alt="PicToSolver Icon">
+          </div>
+          <div class="link-info">
+            <div class="link-top-meta">
+              <span class="link-tag tag-cyan">Android App · Vision AI</span>
+              <span class="tag-status-live">● Working App</span>
+            </div>
+            <h3 class="link-heading">PicToSolver</h3>
+            <p class="link-desc">Android app that scans printed bridge hands using Gemini 2.5 Flash Vision into BridgeWebs & solver engine.</p>
+          </div>
+          <div class="arrow-icon">→</div>
+        </a>
+
+        <!-- 2. Lucka & Ondra Wedding Web -->
+        <a href="https://pyszkad1.github.io/LuckaOndraSvatba/" class="wedding-card" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon-wrap" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); font-size: 1.6rem;">
             <span>💍</span>
           </div>
           <div class="link-info">
             <div class="link-top-meta">
-              <span class="link-tag">Wedding Web · 8. 5. 2027</span>
+              <span class="link-tag tag-gold">Wedding Web · 8. 5. 2027</span>
+              <span class="tag-status-live">● Live</span>
             </div>
             <h3 class="link-heading">Lucka & Ondra · Svatební web</h3>
             <p class="link-desc">Svatební web s harmonogramem, mapou a online potvrzením účasti pro Chateau St. Havel.</p>
@@ -533,32 +596,18 @@
           <div class="arrow-icon">→</div>
         </a>
 
-        <!-- 2. Fools Bridge System Notes -->
+        <!-- 3. Fools Bridge System Notes -->
         <a href="https://bridge.zdenektomis.eu/fools" class="standard-card" target="_blank" rel="noopener noreferrer">
-          <div class="link-icon-wrap" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.3);">
+          <div class="link-icon-wrap" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.3); font-size: 1.6rem;">
             <span>♠️</span>
           </div>
           <div class="link-info">
             <div class="link-top-meta">
               <span class="link-tag" style="color: #818cf8;">Bridge System Notes</span>
+              <span class="tag-status-live">● Live</span>
             </div>
             <h3 class="link-heading">Fools · Bridge Bidding System</h3>
             <p class="link-desc">Interactive documentation and convention notes for the Fools contract bridge bidding system.</p>
-          </div>
-          <div class="arrow-icon">→</div>
-        </a>
-
-        <!-- 3. Bridge Suit Combinations -->
-        <a href="https://github.com/pyszkad1/bridge_suit_combinations" class="standard-card" target="_blank" rel="noopener noreferrer">
-          <div class="link-icon-wrap" style="background: rgba(14, 165, 233, 0.15); border-color: rgba(14, 165, 233, 0.3);">
-            <span>🂡</span>
-          </div>
-          <div class="link-info">
-            <div class="link-top-meta">
-              <span class="link-tag" style="color: #38bdf8;">Bridge Analysis</span>
-            </div>
-            <h3 class="link-heading">Bridge Suit Combinations</h3>
-            <p class="link-desc">Probability calculator and optimal play analyzer for contract bridge suit combinations.</p>
           </div>
           <div class="arrow-icon">→</div>
         </a>
@@ -569,7 +618,7 @@
     <section>
       <div class="section-head">
         <h2 class="section-title">
-          <span>📦</span> Projects & Code
+          <span>📦</span> All Repositories & Tools
         </h2>
         <span class="section-badge" id="repo-count-badge">GitHub Sync</span>
       </div>
@@ -589,7 +638,7 @@
 
     <!-- Footer -->
     <footer>
-      <div>&copy; 2026 Adam Pyszko · <a href="https://pyszkad1.github.io/LuckaOndraSvatba/">Lucka & Ondra</a></div>
+      <div>&copy; 2026 Adam Pyszko · <a href="https://github.com/pyszkad1/PicToSolver">PicToSolver</a> · <a href="https://pyszkad1.github.io/LuckaOndraSvatba/">Lucka & Ondra</a></div>
       <div>Hosted on GitHub Pages · Automatically synced via GitHub API</div>
     </footer>
   </main>
@@ -604,13 +653,13 @@
     // Language color mapping
     const LANG_COLORS = {
       'JavaScript': '#f1e05a',
+      'TypeScript': '#3178c6',
       'HTML': '#e34c26',
       'CSS': '#563d7c',
       'Java': '#b07219',
       'Python': '#3572A5',
       'C++': '#f34b7d',
       'C': '#555555',
-      'TypeScript': '#3178c6',
       'Jupyter Notebook': '#DA5B0B'
     };
 
@@ -618,6 +667,13 @@
 
     // Fallback static repos in case GitHub API rate-limits or fails offline
     const fallbackRepos = [
+      {
+        name: 'PicToSolver',
+        description: 'Android app for bridge players using Gemini 2.5 Flash Vision to scan printed hands.',
+        html_url: 'https://github.com/pyszkad1/PicToSolver',
+        has_pages: false,
+        language: 'JavaScript'
+      },
       {
         name: 'LuckaOndraSvatba',
         description: 'Svatební web s harmonogramem, mapou a RSVP formulářem na Chateau St. Havel.',
@@ -649,13 +705,6 @@
         language: 'Python'
       },
       {
-        name: 'PicToSolver',
-        description: 'Image processing and solver utility.',
-        html_url: 'https://github.com/pyszkad1/PicToSolver',
-        has_pages: false,
-        language: 'Java'
-      },
-      {
         name: 'Bonken_JAVA',
         description: 'Bonken card game implementation in Java.',
         html_url: 'https://github.com/pyszkad1/Bonken_JAVA',
@@ -670,8 +719,7 @@
         if (!res.ok) throw new Error('API request failed: ' + res.status);
         const data = await res.json();
         
-        // Filter out repos that are empty forks or internal tests if desired
-        allRepos = data.filter(r => !r.fork);
+        allRepos = data.filter(r => !r.fork && r.name !== `${USERNAME}.github.io`);
         if (allRepos.length === 0) allRepos = fallbackRepos;
       } catch (err) {
         console.warn('Could not fetch from GitHub API, using fallback data:', err);
@@ -696,7 +744,7 @@
       reposContainer.innerHTML = repos.map(repo => {
         const lang = repo.language || 'Code';
         const dotColor = LANG_COLORS[lang] || '#38bdf8';
-        const hasLiveLink = repo.homepage || (repo.has_pages && repo.name !== `${USERNAME}.github.io`);
+        const hasLiveLink = repo.homepage || repo.has_pages;
         const targetUrl = hasLiveLink ? (repo.homepage || `https://${USERNAME}.github.io/${repo.name}/`) : repo.html_url;
         const desc = repo.description || 'Open source software project on GitHub.';
 
