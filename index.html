@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Pyszko (@pyszkad1) · Projects & Links</title>
+  <meta name="description" content="Personal hub and project showcase of Adam Pyszko (@pyszkad1) — web apps, open source projects, and developer tools.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(255, 255, 255, 0.035);
+      --card-bg-hover: rgba(255, 255, 255, 0.065);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(255, 255, 255, 0.2);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.25);
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.2);
+      --rose: #f43f5e;
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1rem 4rem;
+      position: relative;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Ambient background gradient orbs */
+    .ambient-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+    }
+    .glow-1 {
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 350px;
+      background: radial-gradient(circle, #2563eb, transparent 70%);
+    }
+    .glow-2 {
+      bottom: 10%;
+      right: 5%;
+      width: 400px;
+      height: 350px;
+      background: radial-gradient(circle, #7c3aed, transparent 70%);
+      opacity: 0.3;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Profile Header */
+    .profile-card {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1.5rem 0.5rem 0.5rem;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.35);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #1e293b;
+      display: block;
+    }
+
+    .profile-title {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .profile-handle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 0.25rem 0.85rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .profile-handle:hover {
+      background: rgba(56, 189, 248, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .profile-bio {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.65rem;
+      margin-top: 0.4rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .social-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    /* Section Headings */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      padding: 0 0.25rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.18rem 0.55rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    /* Cards Stack */
+    .links-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    /* Featured Hero Link (Special Highlight) */
+    .featured-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      padding: 1.25rem 1.35rem;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(244, 63, 94, 0.06), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 25px rgba(245, 158, 11, 0.12);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      overflow: hidden;
+    }
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #f59e0b, #f43f5e);
+    }
+    .featured-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(245, 158, 11, 0.6);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 35px rgba(245, 158, 11, 0.22);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(244, 63, 94, 0.09), rgba(255, 255, 255, 0.05));
+    }
+
+    .link-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .featured-card .link-icon-wrap {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .link-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .link-top-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
+    .link-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+    }
+    .link-heading {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .link-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .arrow-icon {
+      font-size: 1.25rem;
+      color: var(--text-faint);
+      transition: transform 0.2s ease, color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .featured-card:hover .arrow-icon,
+    .standard-card:hover .arrow-icon {
+      color: #fff;
+      transform: translateX(4px);
+    }
+
+    /* Standard Cards */
+    .standard-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      padding: 1.15rem 1.25rem;
+      border-radius: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      text-decoration: none;
+      color: inherit;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .standard-card:hover {
+      transform: translateY(-2px);
+      background: var(--card-bg-hover);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Repo Grid / Search */
+    .search-wrap {
+      margin-bottom: 0.85rem;
+    }
+    .search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+    .search-input::placeholder {
+      color: var(--text-faint);
+    }
+
+    .repo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    @media (min-width: 580px) {
+      .repo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .repo-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+      min-height: 110px;
+    }
+    .repo-card:hover {
+      background: var(--card-bg-hover);
+      border-color: var(--card-border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    .repo-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .repo-name {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #fff;
+      word-break: break-word;
+    }
+    .repo-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0.4rem 0 0.8rem;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .repo-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-faint);
+      margin-top: auto;
+    }
+    .repo-lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .pages-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+      padding: 0.15rem 0.45rem;
+      border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 600;
+    }
+
+    /* Skeleton Loading State */
+    .skeleton-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1rem;
+      height: 110px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-faint);
+      padding: 1.5rem 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <main class="container">
+    <!-- Profile & Header -->
+    <header class="profile-card">
+      <div class="avatar-wrap">
+        <img class="avatar-img" src="https://avatars.githubusercontent.com/u/119256066?v=4" alt="Adam Pyszko" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%2338bdf8\'/><text x=\'50%\' y=\'55%\' font-size=\'40\' text-anchor=\'middle\' fill=\'white\' font-family=\'sans-serif\' dy=\'.3em\'>AP</text></svg>'">
+      </div>
+      <h1 class="profile-title">Adam Pyszko</h1>
+      <a href="https://github.com/pyszkad1" target="_blank" rel="noopener noreferrer" class="profile-handle" title="View GitHub profile">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        @pyszkad1
+      </a>
+      <p class="profile-bio">Software engineer & bridge player. Explore live websites, interactive projects, and open source tools.</p>
+      
+      <div class="social-links">
+        <a href="https://github.com/pyszkad1" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:apyszczymacha@gmail.com" class="social-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Contact
+        </a>
+      </div>
+    </header>
+
+    <!-- Featured Live Websites Section -->
+    <section>
+      <div class="section-head">
+        <h2 class="section-title">
+          <span>✨</span> Featured Web Apps
+        </h2>
+        <span class="section-badge">Live</span>
+      </div>
+
+      <div class="links-stack">
+        <!-- 1. Lucka & Ondra Wedding Web -->
+        <a href="https://pyszkad1.github.io/LuckaOndraSvatba/" class="featured-card" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon-wrap">
+            <span>💍</span>
+          </div>
+          <div class="link-info">
+            <div class="link-top-meta">
+              <span class="link-tag">Wedding Web · 8. 5. 2027</span>
+            </div>
+            <h3 class="link-heading">Lucka & Ondra · Svatební web</h3>
+            <p class="link-desc">Svatební web s harmonogramem, mapou a online potvrzením účasti pro Chateau St. Havel.</p>
+          </div>
+          <div class="arrow-icon">→</div>
+        </a>
+
+        <!-- 2. Fools Bridge System Notes -->
+        <a href="https://bridge.zdenektomis.eu/fools" class="standard-card" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon-wrap" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.3);">
+            <span>♠️</span>
+          </div>
+          <div class="link-info">
+            <div class="link-top-meta">
+              <span class="link-tag" style="color: #818cf8;">Bridge System Notes</span>
+            </div>
+            <h3 class="link-heading">Fools · Bridge Bidding System</h3>
+            <p class="link-desc">Interactive documentation and convention notes for the Fools contract bridge bidding system.</p>
+          </div>
+          <div class="arrow-icon">→</div>
+        </a>
+
+        <!-- 3. Bridge Suit Combinations -->
+        <a href="https://github.com/pyszkad1/bridge_suit_combinations" class="standard-card" target="_blank" rel="noopener noreferrer">
+          <div class="link-icon-wrap" style="background: rgba(14, 165, 233, 0.15); border-color: rgba(14, 165, 233, 0.3);">
+            <span>🂡</span>
+          </div>
+          <div class="link-info">
+            <div class="link-top-meta">
+              <span class="link-tag" style="color: #38bdf8;">Bridge Analysis</span>
+            </div>
+            <h3 class="link-heading">Bridge Suit Combinations</h3>
+            <p class="link-desc">Probability calculator and optimal play analyzer for contract bridge suit combinations.</p>
+          </div>
+          <div class="arrow-icon">→</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Dynamic Repositories Section -->
+    <section>
+      <div class="section-head">
+        <h2 class="section-title">
+          <span>📦</span> Projects & Code
+        </h2>
+        <span class="section-badge" id="repo-count-badge">GitHub Sync</span>
+      </div>
+
+      <div class="search-wrap">
+        <input type="text" id="repo-search" class="search-input" placeholder="Search projects by name, keyword, or language...">
+      </div>
+
+      <div class="repo-grid" id="repos-container">
+        <!-- Skeleton loaders while fetching -->
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>&copy; 2026 Adam Pyszko · <a href="https://pyszkad1.github.io/LuckaOndraSvatba/">Lucka & Ondra</a></div>
+      <div>Hosted on GitHub Pages · Automatically synced via GitHub API</div>
+    </footer>
+  </main>
+
+  <script>
+    // GitHub API dynamic repository loader
+    const USERNAME = 'pyszkad1';
+    const reposContainer = document.getElementById('repos-container');
+    const searchInput = document.getElementById('repo-search');
+    const countBadge = document.getElementById('repo-count-badge');
+
+    // Language color mapping
+    const LANG_COLORS = {
+      'JavaScript': '#f1e05a',
+      'HTML': '#e34c26',
+      'CSS': '#563d7c',
+      'Java': '#b07219',
+      'Python': '#3572A5',
+      'C++': '#f34b7d',
+      'C': '#555555',
+      'TypeScript': '#3178c6',
+      'Jupyter Notebook': '#DA5B0B'
+    };
+
+    let allRepos = [];
+
+    // Fallback static repos in case GitHub API rate-limits or fails offline
+    const fallbackRepos = [
+      {
+        name: 'LuckaOndraSvatba',
+        description: 'Svatební web s harmonogramem, mapou a RSVP formulářem na Chateau St. Havel.',
+        html_url: 'https://github.com/pyszkad1/LuckaOndraSvatba',
+        has_pages: true,
+        homepage: 'https://pyszkad1.github.io/LuckaOndraSvatba/',
+        language: 'HTML'
+      },
+      {
+        name: 'fools',
+        description: 'Contract bridge bidding system notes & documentation.',
+        html_url: 'https://github.com/pyszkad1/fools',
+        has_pages: false,
+        homepage: 'https://bridge.zdenektomis.eu/fools',
+        language: 'Markdown'
+      },
+      {
+        name: 'bridge_suit_combinations',
+        description: 'Bridge suit combination probabilities and optimal line analyzer.',
+        html_url: 'https://github.com/pyszkad1/bridge_suit_combinations',
+        has_pages: false,
+        language: 'Python'
+      },
+      {
+        name: 'lidar-tree-labeling',
+        description: 'LiDAR point cloud processing and 3D tree labeling pipeline.',
+        html_url: 'https://github.com/pyszkad1/lidar-tree-labeling',
+        has_pages: false,
+        language: 'Python'
+      },
+      {
+        name: 'PicToSolver',
+        description: 'Image processing and solver utility.',
+        html_url: 'https://github.com/pyszkad1/PicToSolver',
+        has_pages: false,
+        language: 'Java'
+      },
+      {
+        name: 'Bonken_JAVA',
+        description: 'Bonken card game implementation in Java.',
+        html_url: 'https://github.com/pyszkad1/Bonken_JAVA',
+        has_pages: false,
+        language: 'Java'
+      }
+    ];
+
+    async function fetchRepos() {
+      try {
+        const res = await fetch(`https://api.github.com/users/${USERNAME}/repos?sort=updated&per_page=30`);
+        if (!res.ok) throw new Error('API request failed: ' + res.status);
+        const data = await res.json();
+        
+        // Filter out repos that are empty forks or internal tests if desired
+        allRepos = data.filter(r => !r.fork);
+        if (allRepos.length === 0) allRepos = fallbackRepos;
+      } catch (err) {
+        console.warn('Could not fetch from GitHub API, using fallback data:', err);
+        allRepos = fallbackRepos;
+      }
+
+      renderRepos(allRepos);
+    }
+
+    function renderRepos(repos) {
+      if (!repos || repos.length === 0) {
+        reposContainer.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-faint);">
+            No matching projects found.
+          </div>
+        `;
+        return;
+      }
+
+      countBadge.textContent = `${repos.length} Repos`;
+
+      reposContainer.innerHTML = repos.map(repo => {
+        const lang = repo.language || 'Code';
+        const dotColor = LANG_COLORS[lang] || '#38bdf8';
+        const hasLiveLink = repo.homepage || (repo.has_pages && repo.name !== `${USERNAME}.github.io`);
+        const targetUrl = hasLiveLink ? (repo.homepage || `https://${USERNAME}.github.io/${repo.name}/`) : repo.html_url;
+        const desc = repo.description || 'Open source software project on GitHub.';
+
+        return `
+          <a href="${targetUrl}" class="repo-card" target="_blank" rel="noopener noreferrer" title="View ${repo.name}">
+            <div>
+              <div class="repo-top">
+                <span class="repo-name">${escapeHtml(repo.name)}</span>
+                ${hasLiveLink ? '<span class="pages-badge">● Live</span>' : ''}
+              </div>
+              <p class="repo-desc">${escapeHtml(desc)}</p>
+            </div>
+            <div class="repo-bottom">
+              <span class="repo-lang">
+                <span class="lang-dot" style="background-color: ${dotColor};"></span>
+                ${escapeHtml(lang)}
+              </span>
+              <span>→</span>
+            </div>
+          </a>
+        `;
+      }).join('');
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>"']/g, m => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      })[m]);
+    }
+
+    // Real-time search filter
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      if (!q) {
+        renderRepos(allRepos);
+        return;
+      }
+      const filtered = allRepos.filter(r => 
+        r.name.toLowerCase().includes(q) ||
+        (r.description && r.description.toLowerCase().includes(q)) ||
+        (r.language && r.language.toLowerCase().includes(q))
+      );
+      renderRepos(filtered);
+    });
+
+    // Initialize
+    fetchRepos();
+  </script>
+</body>
+</html>
